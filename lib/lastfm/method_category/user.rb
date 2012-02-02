@@ -16,6 +16,10 @@ class Lastfm
       regular_method :get_friends, [:user], [[:recenttracks, nil], [:limit, nil], [:page, nil]] do |response|
         response.xml['friends']['user']
       end
+      
+      regular_method :get_top_tracks, [:user], [[:period, nil], [:limit, nil], [:page, nil]] do |response|
+        response.xml['toptracks']['track']
+      end
 
       regular_method :get_neighbours, [:user], [[:recenttracks, nil], [:limit, nil], [:page, nil]] do |response|
         neighbours = response.xml['neighbours']['user']
